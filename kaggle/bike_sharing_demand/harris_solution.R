@@ -9,6 +9,7 @@
 # Libraries
 #===========
 library(plyr)
+library(party)
 
 #read in train/test
 train <- read.csv('./kaggle/bike_sharing_demand/train.csv')
@@ -85,7 +86,31 @@ test_factor$daypart[(test_factor$hour < 22) & (test_factor$hour > 15)] <- 3
 train_factor$daypart <- as.factor(train_factor$daypart)
 test_factor$daypart <- as.factor(test_factor$daypart)
 
-#convert hour back to factor
+# Convert hour back to factor
 train_factor$hour <- as.factor(train_factor$hour)
 test_factor$hour <- as.factor(test_factor$hour)
 
+# Create our formula
+formula <- count ~ season + holiday + workingday + weather + temp + atemp + humidity + hour + daypart + sunday
+
+# Build our model
+fit.ctree <- ctree(formula, data=train_factor)
+
+# Examine model for variable importance
+fit.ctree
+
+# Run model against test data set
+predict.ctree <- predict(fit.ctree, test_factor)
+
+# RMSLE
+p <- 
+a <- 
+rmsle <- ((log(p+1)-log(a+1))^2)^0.5
+
+
+
+# Build a dataframe with our results
+submit.ctree <- data.frame(datetime = test$datetime, count=predict.ctree)
+
+#write results to .csv for submission
+write.csv(submit.ctree, file='./kaggle/bike_sharing_demand/submit_ctree_v1.csv',row.names=FALSE)
