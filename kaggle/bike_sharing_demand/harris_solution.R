@@ -102,12 +102,18 @@ fit.ctree
 # Run model against test data set
 predict.ctree <- predict(fit.ctree, test_factor)
 
-# RMSLE
-p <- 
-a <- 
+#============
+# Evaluation
+#============
+
+# Submissions are evaluated one the 
+# Root Mean Squared Logarithmic Error (RMSLE). 
+# The RMSLE is calculated as:
+
+# p := predicted count
+# a := actual count
+
 rmsle <- ((log(p+1)-log(a+1))^2)^0.5
-
-
 
 # Build a dataframe with our results
 submit.ctree <- data.frame(datetime = test$datetime, count=predict.ctree)
