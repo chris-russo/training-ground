@@ -60,7 +60,9 @@ colnames(test_dat) <- c('x1', 'x2', 'x3', 'x4', 'x5')
 cor(X_test)
 
 # 3. Generate 200 bootstrap samples1
+# Introduction to bootstrapping: http://www.ats.ucla.edu/stat/r/library/bootstrap.htm
 
-# 3. Fit classification trees to the training sample and to each 
+
+# 4. Fit classification trees to the training sample and to each 
 # of 200 bootstrap samples.
 
