@@ -59,7 +59,7 @@ colnames(test_dat) <- c('x1', 'x2', 'x3', 'x4', 'x5')
 # Check pairwise correlation (should be ~0.95)
 cor(X_test)
 
-# 3. Generate 200 bootstrap samples1
+# 3. Generate 200 bootstrap samples
 # Introduction to bootstrapping: http://www.ats.ucla.edu/stat/r/library/bootstrap.htm
 
 
