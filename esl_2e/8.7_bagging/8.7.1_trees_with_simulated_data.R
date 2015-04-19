@@ -25,7 +25,7 @@ N <- 30
 p <- 5
 cc <- 0.95
 mu <- rep(0.5, 5)
-Sigma <- matrix(cc, nrow = p, ncol = p) + diag(p)*(1-cc)
+Sigma <- matrix(cc, nrow = p, ncol = p) + diag(p)*(1 - cc)
 
 # Generate features
 X <- round(mvrnorm(N, mu, Sigma), 2)
@@ -34,9 +34,9 @@ X <- round(mvrnorm(N, mu, Sigma), 2)
 cor(X)
 
 # Define response
-Y <- ifelse(X[,1] <= 0.5, 
-            sample(c(0,1), prob = c(0.8,0.2)), 
-            sample(c(0,1), prob = c(0.2,0.8))
+Y <- ifelse(X[, 1] <= 0.5, 
+            sample(c(0, 1), prob = c(0.8, 0.2)), 
+            sample(c(0, 1), prob = c(0.2, 0.8))
 )
 
 # Define dataframe with response (Y) and feature (X) variables
@@ -60,7 +60,7 @@ colnames(test_dat) <- c('x1', 'x2', 'x3', 'x4', 'x5')
 cor(X_test)
 
 # 3. Generate 200 bootstrap samples
-# Introduction to bootstrapping: http://www.ats.ucla.edu/stat/r/library/bootstrap.htm
+# Intro to bootstrapping: http://www.ats.ucla.edu/stat/r/library/bootstrap.htm
 
 
 # 4. Fit classification trees to the training sample and to each 
