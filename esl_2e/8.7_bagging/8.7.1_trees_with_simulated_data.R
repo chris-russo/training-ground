@@ -10,7 +10,6 @@
 #===========
 library(MASS)
 
-
 # 1. Generate a sample of size N = 30, with two classes and 
 # p = 5 features, each having a standard Gaussian distribution 
 # with pairwise correlation 0.95. 
