@@ -111,10 +111,16 @@ coeftest(swiss_probit, vcov = sandwich)
 data('MurderRates')
 
 # Define equation
-yxb_murder <- I(executions > 0) ~ time + income + noncauc + lfp + southern
+yxb_murder <- 
+  I(executions > 0) ~ time + income + noncauc + lfp + southern
 
 # Define model
-murder_logit <- glm(yxb_murder, data = MurderRates, family = binomial)
+murder_logit <-
+  glm(
+    yxb_murder, 
+    data = MurderRates, 
+    family = binomial
+    )
 
 # Note: calling glm() results in a warning message according 
 # to which some fitted probabilities are numerically 
@@ -128,10 +134,17 @@ summary(murder_logit)
 coeftest(murder_logit)
 
 # Define equation
-murder_logit2 <- glm(yxb_murder, 
-                     data = MurderRates, 
-                     family = binomial, 
-                     control = list(epsilon = 1e-15,maxit = 50, trace = FALSE))
+murder_logit2 <- 
+  glm(
+    yxb_murder,
+    data = MurderRates,
+    family = binomial,
+    control = list(
+      epsilon = 1e-15,
+      maxit = 50,
+      trace = FALSE
+    )
+  )
 
 # Coefficient estimates with robust standard errors
 # Note: Std. error of southernyes doubled despite 
