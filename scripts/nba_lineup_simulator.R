@@ -1,6 +1,6 @@
 # NBA lineup simulator
 
-# This script generates a data frame of all unique player-position combinations
+# Generate a data frame of all unique player-position combinations
 # for a given 14-player NBA roster.
 
 # Author: CR
